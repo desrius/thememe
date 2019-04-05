@@ -1,0 +1,93 @@
+title: Navigation
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/navigation
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/navigation
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        navigation:
+          type: tab
+          title: Navigation
+          fields:
+            header.image:
+              type: filepicker
+              folder: 'self@/'
+              label: Select a photo
+              preview_images: true
+              accept:
+                - .png
+                - .jpg
+                - .PNG
+                - .JPG
+            header.imageHeight:
+              type: text
+              multiple: false
+              destination: '@self'
+              accept:
+                - image/*
+              label: Image Height
+            header.imageWidth:
+              type: text
+              multiple: false
+              destination: '@self'
+              accept:
+                - image/*
+              label: Image Width
+            header.links:
+              name: links
+              type: list
+              label: Links
+              collapsed: true
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .url:
+                  type: text
+                  label: Url
+            header.linksPosition:
+              label: Select Position of Links
+              type: select
+              size: long
+              options:
+                left: left
+                right: right
+            header.logoCentered:
+              type: toggle
+              label: Logo in Center
+              highlight: 1
+              options:
+                  1: On
+                  0: Off
+              validate:
+                  type: bool
+              default: 0
+            header.fixed:
+              type: toggle
+              label: Fixed Navigation
+              highlight: 1
+              options:
+                  1: On
+                  0: Off
+              validate:
+                  type: bool
+              default: 0
+            header.color:
+              type: colorpicker
+              label: Navigation Color
+              size: small
+              default: '#ffffff'

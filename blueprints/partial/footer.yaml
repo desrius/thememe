@@ -1,0 +1,37 @@
+title: Footer
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: partial/footer
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: partial/footer
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        footer:
+          type: tab
+          title: Footer
+          fields:
+            header.impressum:
+              name: Impressum
+              type: editor
+              label: Impressum
+              autofocus: true
+                codemirror:
+                  indentUnit: 4
+                  autofocus: true
+                  indentWithTabs: false
+                  lineNumbers: true
+                  styleActiveLine: true
+                  lint: true

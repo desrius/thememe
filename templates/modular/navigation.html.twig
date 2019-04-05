@@ -1,0 +1,30 @@
+{% if header.fixed %}
+    <div class="navbar-fixed">
+    {% endif %}
+
+    <nav>
+        <div class="nav-wrapper" style="background-color:{{header.color}}">
+            {% if header.linksPosition == 'left' %}
+                {% set logoPosition = 'right' %}
+            {% else %}
+                {% set logoPosition = 'left' %}
+            {% endif %}
+            {% if header.logoCentered %}
+                {% set logoPosition = 'center' %}
+            {% endif %}
+            {{ header.color.value }}
+            <a class="{{logoPosition}} brand-logo" href="#">{{site.title}}</a>
+
+            <ul class="{{header.linksPosition}} hide-on-med-and-down" id="nav-mobile">
+                {% for link in page.header.links %}
+                    <li>
+                        <a href="{{link.url}}">{{link.title}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </nav>
+    {% if header.fixed %}
+    </div>
+{% endif %}

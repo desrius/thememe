@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
+
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <title>
+            {% if header.title %}
+                {{ header.title }}
+                |
+            {% endif %}
+            {{ site.title }}</title>
+        {% include 'partials/metadata.html.twig' %}
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+        <link rel="icon" type="image/png" href="{{ url('theme://img/favicon.ico') }}" />
+
+        {% block stylesheets %}
+            {% do assets.addCss('theme://css-compiled/materialize.css') %}
+        {% endblock %}
+
+        {% block assets deferred %}
+            {{ assets.css()|raw }}
+        {% endblock %}
+
+    {% endblock %}
+</head>
+<body id="top">
+    {% block body %}
+        {% block content %}{% endblock %}
+    {% endblock %}
+
+    {% block javascripts %}
+        {% do assets.addJs('theme://js/bin/materialize.min.js') %}
+        {% do assets.addJs('theme://js/script.js') %}
+
+    {% endblock %}
+
+    {{ assets.js()|raw }}
+    {{ assets.js('bottom')|raw }}
+</body>
+
+</html>

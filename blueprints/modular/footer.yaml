@@ -1,0 +1,57 @@
+title: Footer
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/footer
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/footer
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        
+        header:
+          type: tab
+          title: Footer
+          fields:
+            header.social:
+              name: Social Accounts
+              type: list
+              label: Accounts
+              collapsed: true
+
+              fields:
+                .name:
+                  type: text
+                  label: Name
+                .icon:
+                  type: input.icon
+                  label: Icon
+                  default: rocket
+                  description: "check awesome-fonts.com for an icon name." 
+                .url:
+                  type: textarea
+                  label: Website
+            header.quicklinks:
+              name: Quicklinks
+              type: list
+              label: Links
+              collapsed: true
+
+              fields:
+                .name:
+                  type: text
+                  label: Name
+                .url:
+                  type: textarea
+                  label: Website

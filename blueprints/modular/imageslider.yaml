@@ -1,0 +1,108 @@
+title: ImageSlider
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/imageSlider
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/imageSlider
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        
+        header:
+          type: tab
+          title: Image Slider
+          fields:
+            header.images:
+              type: list
+              label: Images
+              collapsed: true
+              fields:
+                .title:
+                  type: editor
+                  label: Title
+                  description: Enter the title
+                  validate:
+                    type: textarea
+                .desc:
+                  type: editor
+                  label: Description
+                  description: Customize the description.
+                  placeholder: Enter short description
+                  validate:
+                    type: textarea
+                .image:
+                  type: filepicker
+                  folder: 'self@/'
+                  label: Select a photo
+                  preview_images: true
+                  accept:
+                    - .png
+                    - .jpg
+                    - .PNG
+                    - .JPG
+                .link:
+                  type: text
+                  label: Big Link without button
+                  description: Input the link.
+                .button_link:
+                  type: text
+                  label: Button link
+                  description: Input the button link.
+                .linktext:
+                  type: text
+                  label: Button Text
+                  description: Input the text for the button link.
+            header.imageWidth:
+              type: text
+              label: Image Width
+          
+            header.imageHeight:
+              type: text
+              label: Image Height
+
+            header.withArrows:
+              type: select
+              label: Arrows
+              description: Enable or disable the Arrow navigation.
+              default: disable
+              options:
+                enable: Enable
+                disable: Disable
+
+            header.withDots:
+              type: select
+              label: Dots
+              description: Enable or disable the Dots navigation.
+              default: enable
+              options:
+                enable: Enable
+                disable: Disable
+
+            header.autoplaySpeed:
+              type: text
+              label: Autoplay Delay
+              description: Set the speed of the Autoplay, in milliseconds.
+              placeholder: 5000
+
+            header.imageOverlay:
+              type: select
+              label: Image Overlay
+              description: Enable or disable the image overlay.
+              default: enable
+              options:
+                enable: Enable
+                disable: Disable
+
+

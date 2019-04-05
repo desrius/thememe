@@ -1,0 +1,32 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    {% for account in page.header.social %}
+                        <li>
+                            <a href="{{ account.url }}" target="blank_">
+                                <i class="fa fa-{{ account.icon }}"></i>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="">
+                <ul class="">
+                    {% for link in page.header.quicklinks %}
+                        <li>
+                            <a href="{{ link.url }}">{{ link.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="">
+                <p>Created by
+                    <a href="http://www.desrius.com/">Emilijus Ivaskevicius</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
